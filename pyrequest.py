@@ -31,22 +31,25 @@
 # Better deal with None values, don't throw an exception and just send an empty string.
 # Simplified text example
 #
-# 2014/07/07 <lemori@foxmail.com>
+# 2014/08/28 <lemori@foxmail.com>
 # Feature:
 #    A simple api interface with more functions;
 #    Supports Non-ASCII values/dict and filenames well.
 """
+Should support python 2 only.
 Usage:
-    webutil.post(url, data=None, has_files=False|True)
-When has_files=False:
+    webutil.request(url, data=None, has_files=False|True)
+When has_files is False:
     data can be a relatively complicated structure, e.g.
     { "user": { "name": "bob", "age": "18"},
         "colors": ["red", "blue", "green"] }
-When has_files=True:
-    it post with contenttype = multipart/form-data
+When has_files is True:
+    it POST with contenttype = multipart/form-data
     and data should be a simple dict, e.g.
     { "username" : "bob", "password" : "riviera",
         "file" : open("filepath", "rb") }
+When data is None and has_files is False:
+    it GET resources from the url
 """
 import urllib
 import urllib2
@@ -201,7 +204,7 @@ class BodyPostHandler(urllib2.BaseHandler):
     https_request = http_request
 
 
-def post(url, data=None, has_files=False):
+def request(url, data=None, has_files=False):
     '''url: request URL, supports params.
     body: content in the body field.'''
     if has_files:
