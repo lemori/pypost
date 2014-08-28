@@ -3,11 +3,12 @@ pyrequest
 
 HTTP GET/POST function based on Python 2
 
-####Forked form MultipartPostHandler and thanks for their great work!
-####Feature: Simple interface and supports Non-ASCII values/dict and filenames well.
-####Author: lemori@foxmail.com
-```
+#####Rebuild from [MultipartPostHandler](https://pypi.python.org/pypi/MultipartPostHandler/0.1.0)
+#####Feature: Simpler interface; supports posting Non-ASCII (dict)values and filenames.
+#####Author: lemori@foxmail.com
+
 Usage:
+```
     webutil.request(url, data=None, has_files=False|True)
 When has_files is False:
     data can be a relatively complicated structure, e.g.
