@@ -1,15 +1,15 @@
 pyrequest
 ===
 
-HTTP GET/POST function based on Python 2
+Light HTTP GET/POST wrapper for Python 2
 
 #####Rebuild from [MultipartPostHandler](https://pypi.python.org/pypi/MultipartPostHandler/0.1.0)
 #####Feature: Simpler interface; supports posting Non-ASCII (dict)values and filenames.
 #####Author: lemori@foxmail.com
 
-Usage:
+Usage: `webutil.request(url, data=None, has_files=False|True)`
+
 ```
-    webutil.request(url, data=None, has_files=False|True)
 When has_files is False:
     data can be a relatively complicated structure, e.g.
     { "user": { "name": "bob", "age": "18"},
